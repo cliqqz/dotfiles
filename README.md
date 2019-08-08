@@ -1,1 +1,1 @@
-# dotfiles
+## personal configuration for void linux 
