@@ -1,7 +1,7 @@
 [colors]
 glass  = #00000000
-light  = #ddd
-ash    = #77ffffff
+light  = #eee
+ash    = #999
 gold = #ead3aa
 
 [bar/top]
@@ -29,7 +29,7 @@ modules-right = pulseaudio wired-network time
 
 [module/bspwm]
 type = internal/bspwm
-ws-icon-default = #
+ws-icon-default = 
 
 format = <label-state> <label-mode>
 
@@ -49,7 +49,7 @@ label-empty-foreground = ${colors.ash}
 
 [module/tabs]
 type = custom/script
-exec = ~/.config/polybar/tabs '#ddd' '#77ffffff'
+exec = ~/.config/polybar/tabs '#eee' '#999'
 interval = 0
 
 [module/time]
@@ -84,8 +84,8 @@ format-volume = <ramp-volume> <label-volume>
 
 format-muted = <label-muted>
 
-label-volume =  "%{F#777}%{F-}%percentage:3%% "
-label-muted = "   %{F#777}%{F-}  "
+label-volume =  "%{F#999}%{F-}%percentage:3%% "
+label-muted = "   %{F#999}%{F-}  "
 
 ramp-volume-0 = 
 ramp-volume-1 = 
