@@ -1,0 +1,97 @@
+[colors]
+glass  = #00000000
+light  = #ddd
+ash    = #77ffffff
+gold = #ead3aa
+
+[bar/top]
+width = 100%
+height = 18
+
+bottom = false
+
+background = ${colors.glass}
+foreground = ${colors.light}
+
+border-size = 4
+border-color = ${colors.glass}
+
+module-margin-right = 3
+
+font-0 = Ubuntu Nerd Font:style=Light,Regular:pixelsize=9;2
+
+modules-left = bspwm tabs
+modules-right = pulseaudio wired-network time
+
+; ---------------------------------------------------------------------------------------
+; MODULES
+; ---------------------------------------------------------------------------------------
+
+[module/bspwm]
+type = internal/bspwm
+ws-icon-default = #
+
+format = <label-state> <label-mode>
+
+label-focused = %icon%
+label-focused-padding = 3
+label-focused-foreground = ${colors.gold}
+
+label-occupied = %icon%
+label-occupied-padding = 3
+
+label-urgent = %icon%
+label-urgent-padding = 3
+
+label-empty = %icon%
+label-empty-padding = 3
+label-empty-foreground = ${colors.ash}
+
+[module/tabs]
+type = custom/script
+exec = ~/.config/polybar/tabs '#ddd' '#77ffffff'
+interval = 0
+
+[module/time]
+type = internal/date
+interval = 1.0
+
+time = %H:%M
+time-alt = %d.%m.%y%
+
+label = %time%
+label-padding-right = 3
+
+format = <label>
+
+[module/wired-network]
+type = internal/network
+interface = enp0s25
+
+label-connected = " "
+label-disconnected = 
+
+format-connected =  <label-connected>
+
+format-disconnected =  <label-disconnected>
+
+[module/pulseaudio]
+type = internal/pulseaudio
+interval = 5
+use-ui-max = true
+
+format-volume = <ramp-volume> <label-volume>
+
+format-muted = <label-muted>
+
+label-volume =  "%{F#777}%{F-}%percentage:3%% "
+label-muted = "   %{F#777}%{F-}  "
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+[global/wm]
+margin-bottom = 0
+
+; vim:ft=dosini

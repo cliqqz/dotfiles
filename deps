@@ -1,0 +1,41 @@
+#!/bin/bash
+
+kernel=$(uname -r | grep -oP "([1-9]+).([1-9]+)" | head -1)
+packages=(
+    void-repo-nonfree
+    nvidia
+    xorg-minimal
+    google-fonts-ttf
+    rxvt-unicode
+    bspwm
+    sxhkd
+    polybar
+    rofi
+    compton
+    xrdb
+    xsetroot
+    setxkbmap
+    git
+)
+
+# Update system
+for n in $(seq 1 10); do
+    xbps-install -Syu
+done
+
+# install all packages
+for pkg in ${packages[@]}; do
+    xbps-install -Sy $pkg
+done
+
+# reconfigure current kernel
+xbps-reconfigure -f linux$kernel
+
+# Fetch configuration & setup
+mkdir ~/.config
+mkdir /tmp/configuration && cd /tmp/configuration
+git clone https://github.com/xqce/dotfiles
+cp -ax dotfiles/{bspwm,sxhkd,polybar,rofi,compton} ~/.config
+cp -ax dotfiles/.{xinitrc,Xresources} ~/
+cat dotfiles/.ps1 >> ~/.bashrc
+cd ~/ && rm -rf /tmp/configuration
