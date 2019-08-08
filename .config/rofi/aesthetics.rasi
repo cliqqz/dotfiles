@@ -1,6 +1,6 @@
 configuration {
   columns: 1;
-  font: "Ubuntu Nerd Font 10";
+  font: "Iosevka Nerd Font 14";
   display-combi: "";
 }
 
@@ -51,7 +51,7 @@ configuration {
 
 #element {
   background-color: transparent;
-  padding: 12 10;
+  padding: 16 10;
 }
 
 #element selected {
