@@ -2,7 +2,7 @@
 
 sxhkd &
 
-bspc monitor -d 1 2 3 4
+bspc monitor -d 1 2 3 4 5
 
 bspc config border_width         1
 bspc config window_gap           5
@@ -17,10 +17,6 @@ bspc config urgent_border_color  \#000000
 bspc config presel_border_color  \#000000
 
 # Set monocle by default
-for n in $(seq 1 4); do
+for n in $(seq 1 5); do
     bspc desktop $n --layout monocle
 done
-
-feh --bg-scale ~/Pictures/FsIVsFQ.jpg
-compton -b
-polybar --reload top &

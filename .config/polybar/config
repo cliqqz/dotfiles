@@ -2,7 +2,7 @@
 glass  = #00000000
 light  = #eee
 ash    = #999
-gold = #ead3aa
+blood = #ddFF7F7F
 
 [bar/top]
 width = 100%
@@ -29,27 +29,28 @@ modules-right = pulseaudio wired-network time
 
 [module/bspwm]
 type = internal/bspwm
-ws-icon-default = 
+ws-icon-default = 
 
 format = <label-state> <label-mode>
 
 label-focused = %icon%
 label-focused-padding = 3
-label-focused-foreground = ${colors.gold}
+;label-focused-foreground = ${colors.blood}
 
 label-occupied = %icon%
 label-occupied-padding = 3
+label-occupied-foreground = ${colors.ash}
 
 label-urgent = %icon%
 label-urgent-padding = 3
 
-label-empty = %icon%
+label-empty = 
 label-empty-padding = 3
 label-empty-foreground = ${colors.ash}
 
 [module/tabs]
 type = custom/script
-exec = ~/.config/polybar/tabs '#eee' '#999'
+exec = ~/.config/polybar/tabs '#eee' '#aaa'
 interval = 0
 
 [module/time]
